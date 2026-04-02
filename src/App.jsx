@@ -18,11 +18,13 @@ import { setCart } from "./Redux/cartSlice"
 import { fetchCart } from "./services/cartService"
 import { useDispatch, useSelector } from "react-redux"
 import Shop from "./pages/Shop"
+import ScrollToTop from "./utils/scrollToTop"
 
 
 const Layout = () => {
   return (
     <>
+    <ScrollToTop />
     <Navbar/>
     <Outlet/>
     <Footer/>
@@ -45,6 +47,7 @@ const App = () => {
   }, [user?.uid, dispatch]);
   const router = createBrowserRouter(createRoutesFromElements(
     <Route>
+      
       <Route path="/" element={<Layout/>}>
         <Route index element={<Home/>} />
         <Route path="/cart" element={<Cart/>} />
